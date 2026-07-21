@@ -1,10 +1,13 @@
+import { Provider } from "react-redux";
+import Body from "./components/Body";
+import appStore from "./utilis/appStore";
 
 const App = () => {
   return (
-  <div className="text-3xl font-bold text-green-800">
-    Namste react
-  </div>
+    <Provider store={appStore}>
+      <Body />
+    </Provider>
   );
-}
+};
 
 export default App;
