@@ -20,40 +20,64 @@
 
 
 
+
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
-  if (!movies) return null;
+  if (!movies || movies.length === 0) return null;
 
   return (
-    <div className="mb-10 px-6">
+    <section className="mb-8 px-4 sm:px-6 md:px-10 lg:px-14">
 
-      {/* Movie Category Title */}
-      <h2 className="text-2xl font-semibold text-white mb-4 tracking-wide">
+      {/* Category Title */}
+
+      <h2
+        className="
+          mb-4
+          text-lg
+          sm:text-xl
+          md:text-2xl
+          font-bold
+          text-white
+          tracking-wide
+        "
+      >
         {title}
       </h2>
 
-      {/* Movie Row */}
-      <div className="relative group">
+      <div className="relative">
 
-        {/* Left Gradient */}
-        <div className="absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+        {/* Left Shadow */}
 
-        {/* Right Gradient */}
-        <div className="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-black to-transparent"></div>
 
-        <div className="flex gap-3 overflow-x-auto scroll-smooth scrollbar-hide pb-4">
+        {/* Right Shadow */}
 
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-black to-transparent"></div>
+
+        {/* Movie Row */}
+
+        <div
+          className="
+            flex
+            gap-3
+            overflow-x-auto
+            scroll-smooth
+            scrollbar-hide
+            pb-4
+          "
+        >
           {movies.map((movie) => (
             <MovieCard
               key={movie.id}
               posterPath={movie.poster_path}
             />
           ))}
-
         </div>
+
       </div>
-    </div>
+
+    </section>
   );
 };
 

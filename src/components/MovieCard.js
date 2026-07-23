@@ -8,17 +8,32 @@ const MovieCard = ({ posterPath }) => {
     return (
         <div 
         className="
-        w-36
+        flex-shrink-0
+        w-28
+        sm:w-32
         md:w-40
         lg:w-44
-        flex-shrink-0
+        xl:w-48
         cursor-pointer
         transition-all
         duration-300
-        hover:scale-105"
+        hover:scale-105
+        hover:z-20
+      "
       >
             <img
-            className="rounded-xl shadow-xl w-full h-56 object-cover"
+            className="
+          w-full
+          h-40
+          sm:h-48
+          md:h-60
+          lg:h-64
+          rounded-lg
+          object-cover
+          shadow-lg
+          transition-all
+          duration-300
+          hover:shadow-2xl "
             src={IMG_URL + posterPath} />
         </div>
     )

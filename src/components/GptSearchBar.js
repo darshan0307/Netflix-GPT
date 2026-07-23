@@ -36,22 +36,22 @@ const GptSearchBar = () => {
 
   const handleGptSearchClick = async () => {
     const gptQuery = `
-You are a movie recommendation system.
+      You are a movie recommendation system.
 
-Recommend exactly 5 Indian movies based on:
+      Recommend exactly 5 Indian movies based on:
 
-"${SearchText.current.value}"
+      "${SearchText.current.value}"
 
-Rules:
-- Return ONLY movie names.
-- No numbering.
-- No descriptions.
-- No markdown.
-- Separate each movie with a comma.
+      Rules:
+      - Return ONLY movie names.
+      - No numbering.
+      - No descriptions.
+      - No markdown.
+      - Separate each movie with a comma.
 
-Example:
-Kantara, Tumbbad, Raaz, Bhoothnath, Phoonk
-`;
+      Example:
+      Kantara, Tumbbad, Raaz, Bhoothnath, Phoonk
+      `;
 
     const gptResults = await openai.chat.completions.create({
       messages: [{ role: "user", content: gptQuery }],
@@ -77,43 +77,54 @@ Kantara, Tumbbad, Raaz, Bhoothnath, Phoonk
   return (
     <div className="flex justify-center pt-32 px-4">
       <form
-        className="
-    w-full
-    max-w-4xl
-    grid
-    grid-cols-12
-    bg-black/80
-    backdrop-blur-md
-    rounded-2xl
-    shadow-2xl
-    border
-    border-gray-700
-    overflow-hidden"
+       className="
+          flex
+          w-full
+          max-w-5xl
+          flex-col
+          gap-3
+          rounded-2xl
+          border
+          border-gray-700
+          bg-black/80
+          p-4
+          backdrop-blur-md
+          shadow-2xl
+          sm:flex-row
+        "
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={SearchText}
           type="text"
           className="
-            col-span-9
-            bg-transparent
+            flex-1
+            rounded-xl
+            bg-gray-900
+            px-5
+            py-4
+            text-base
             text-white
             placeholder-gray-400
-            px-6
-            py-5
             outline-none
-            text-lg"
+            focus:ring-2
+            focus:ring-red-600
+          "
           placeholder={lang[langKey].GptSearchPlaceholder}
         />
         <button
           className="
-            col-span-3
+            rounded-xl
             bg-red-600
-            hover:bg-red-700
-            text-white
-            text-lg
+            px-8
+            py-4
             font-semibold
-            transition"
+            text-white
+            transition
+            hover:bg-red-700
+            disabled:cursor-not-allowed
+            disabled:bg-gray-600
+          "
           onClick={handleGptSearchClick}
         >
           {lang[langKey].search}

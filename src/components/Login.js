@@ -46,10 +46,10 @@ const Login = () => {
 
           })
           .then(() => {
-            const { vid, email, displayName, photoURL } = auth.currentUser;
+            const { uid, email, displayName, photoURL } = auth.currentUser;
             dispatch(
               addUser({
-                vid: vid,
+                uid: uid,
                 email: email,
                 displayName: displayName,
                 photoURL: photoURL,
@@ -107,6 +107,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
+          ref={name}
             type="text"
             placeholder="Full Name"
             className="mb-3 w-full rounded-lg bg-gray-600 px-4 py-3 outline-none focus:ring-2 focus:ring-red-600"
