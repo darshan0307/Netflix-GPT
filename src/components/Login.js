@@ -7,6 +7,9 @@ import { auth } from "../utilis/firebase";
 import { addUser } from "../utilis/userSlice";
 import { useDispatch } from "react-redux";
 import { user_url } from "../utilis/constants"
+import { BG_URL } from "../utilis/constants";
+
+
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
 
@@ -90,47 +93,47 @@ const Login = () => {
     <div>
       <Header />
       <div>
-        {/* <img 
-                src="https://occ.a.nflxso.net/dnmt/api/v6/iL4oJVDYZ8KLSrJ6eG2OwtghbfQ/AAAAAUkLCBtHBbguPPqzaFOzEv4Pw_eS79j0y7ADR4hkB30-HkahpsUb5yvfzgKsfU2oNda-7hpkfYLnXhjc23JVT07PHsGgfsaHAB7qOhy2_5gn-nuKOVSUSBzn-i-O3ea2QQaXx3PYkHes.svg"
-                alt="logo" 
-                /> */}
+        {<img className="absolute h-screen w-screen object-cover"
+            src={BG_URL}
+            alt="Background" 
+          /> }
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-70"
+        className="absolute left-1/2 top-1/2 w-96 -translate-x-1/2 -translate-y-1/2 rounded-xl bg-black/80 p-8 text-white shadow-2xl"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="mb-6 text-3xl font-bold">
           {isSignInForm ? "Sign in" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
             type="text"
             placeholder="Full Name"
-            className="p-2 my-4 w-full bg-gray-800"
+            className="mb-3 w-full rounded-lg bg-gray-600 px-4 py-3 outline-none focus:ring-2 focus:ring-red-600"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email-Adress"
-          className="p-2 my-4 w-fully bg-gray-800"
+          className="mb-3 w-full rounded bg-gray-600 px-4 py-3 outline-none focus:ring-2 focus:ring-red-600"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-2 my-4 w-fully bg-gray-800"
+          className="mb-3 w-full rounded bg-gray-600 px-4 py-3 outline-none focus:ring-2 focus:ring-red-600"
         />
 
         <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
 
         <button
-          className="p-4 my-6 bg-red-700 w-fully rounded-lg"
+          className="mb-4 w-full rounded bg-red-600 p-4 text-lg font-bold transition hover:bg-red-700"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign in" : "Sign Up"}
         </button>
-        <p className="py-4 cursor-pointer" onClick={toggleSignINForm}>
+        <p className="cursor-pointer text-gray-300 hover:text-white" onClick={toggleSignINForm}>
           {isSignInForm
             ? "New to Netflix? signup now"
             : "Already registered? Sign in Now..."}

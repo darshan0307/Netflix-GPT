@@ -7,12 +7,17 @@ export const user_url =
 
 
 
+export const BG_URL = "https://images.hdqwalls.com/download/one-piece-netflix-poster-kn-3840x2160.jpg"
+
+
+
 export const API_OPTIONS = {
     method: "GET",
     headers: {
         accept: "application/json",
         Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNDAzYjk4MjA1ZmVhMWI0NDE4NDliNjExYzZhMGYyNyIsIm5iZiI6MTc4NDYxOTI4OS4yNzEwMDAxLCJzdWIiOiI2YTVmMjExOTY0YTllNjkxODM5MjI3ZDkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._9PYZMgOksicObPTcc730NdUt_2jq6HwMwgZMXJf2x8"
+        "Bearer " + process.env.REACT_APP_TMDB_KEY
+        
         
     },
 };
@@ -20,3 +25,14 @@ export const API_OPTIONS = {
 
 export const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
+
+export const SUPPORT_LANGUAGES = [
+    { identifier: "en", name: "English"},
+    { identifier: "Hindi", name: "Hindi"},
+    { identifier: "Telugu", name: "Telugu"},
+    { identifier: "Tamil", name: "Tamil"},
+    { identifier: "Kannada", name: "Kannada"},
+]
+
+
+const apiKey = process.env.REACT_APP_OPENAI_KEY;
